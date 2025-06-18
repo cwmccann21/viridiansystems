@@ -78,6 +78,7 @@ const Index = () => {
             >
               <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
                 Start Your Free Trial
+                <ArrowRight className="ml-2 h-5 w-5 md:h-6 md:w-6" />
               </a>
             </Button>
             <Button 
@@ -165,23 +166,22 @@ const Index = () => {
                     ))}
                   </div>
 
-                  <Button 
-                    asChild 
-                    className="w-full rounded-full font-semibold hover:scale-105 transition-all duration-300 mt-auto flex-shrink-0" 
+                  <Link
+                    to={flow.path}
+                    onClick={() => sessionStorage.setItem('scrollToTopOnNextPage', 'true')}
+                    className="w-full rounded-full font-semibold py-3 text-lg hover:scale-105 transition-all duration-300 mt-auto flex-shrink-0 flex items-center justify-center text-white"
                     style={{
                       backgroundColor: flow.color,
                       boxShadow: `0 8px 25px ${flow.color}30`
                     }}
                   >
-                    <Link to={flow.path}>
-                      Explore {flow.name}
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                    Explore {flow.name}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </CardContent>
 
                 <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300" 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none" 
                   style={{
                     backgroundColor: flow.color
                   }} 
@@ -263,7 +263,7 @@ const Index = () => {
             <div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Viridian Systems</h3>
               <p className="text-gray-400 leading-relaxed">
-                Award-winning automation solutions built specifically for service businesses.
+                Pioneers of AI solutions.
               </p>
             </div>
             <div>

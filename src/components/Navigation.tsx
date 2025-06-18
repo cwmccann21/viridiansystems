@@ -18,10 +18,10 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center hover:scale-105 transition-transform duration-200">
-            <img src="/src/assets/logo.png" alt="Viridian Systems Logo" className="h-10 w-auto mr-2" />
+            <img src="/logo.png" alt="Viridian Systems Logo" className="h-10 w-auto mr-2" />
           </Link>
           
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden md:flex flex-1 items-center justify-center space-x-2">
             {navItems.map((item) => {
               const isActive = location.pathname === item.path;
               return (
@@ -43,16 +43,15 @@ const Navigation = () => {
                 </Link>
               );
             })}
-            
-            <Button 
-              asChild
-              className="ml-12 bg-[#9032D1] hover:bg-purple-800 text-white px-8 py-3 rounded-full font-medium shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-            >
-              <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
-                Contact Us
-              </a>
-            </Button>
           </div>
+          <Button 
+            asChild
+            className="ml-12 bg-[#9032D1] hover:bg-purple-800 text-white px-8 py-3 rounded-full font-medium shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 hidden md:inline-flex"
+          >
+            <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
+              Contact Us
+            </a>
+          </Button>
 
           {/* Mobile menu button */}
           <div className="md:hidden">

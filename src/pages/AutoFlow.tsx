@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Star, Car, Wrench, MessageSquare, Calendar, Bell, ArrowRight, Zap, Clock, Shield } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import { useEffect } from "react";
+
 const AutoFlow = () => {
   const automations = [{
     icon: <MessageSquare className="h-8 w-8" />,
@@ -61,6 +63,14 @@ const AutoFlow = () => {
     popular: false,
     features: ["Everything in Growth", "Multi-location Support", "Custom Automations", "API Integrations", "Dedicated Account Manager", "White-label Options"]
   }];
+
+  useEffect(() => {
+    if (sessionStorage.getItem('scrollToTopOnNextPage')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      sessionStorage.removeItem('scrollToTopOnNextPage');
+    }
+  }, []);
+
   return <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
       <Navigation />
       
@@ -276,7 +286,7 @@ const AutoFlow = () => {
             <div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Viridian Systems</h3>
               <p className="text-gray-400 leading-relaxed">
-                Pioneers of AI solutions for the trades.
+                Pioneers of AI solutions.
               </p>
             </div>
             <div>

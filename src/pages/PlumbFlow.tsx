@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Star, Wrench, Phone, Calendar, MessageSquare, Bell, ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import { useEffect } from "react";
+
 const PlumFlow = () => {
   const automations = [{
     icon: <Phone className="h-8 w-8" />,
@@ -39,6 +41,14 @@ const PlumFlow = () => {
     price: "$267",
     features: ["Everything in Growth", "Multi-technician Dispatch", "Inventory Integration", "Custom Workflows", "API Access", "Dedicated Account Manager"]
   }];
+
+  useEffect(() => {
+    if (sessionStorage.getItem('scrollToTopOnNextPage')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      sessionStorage.removeItem('scrollToTopOnNextPage');
+    }
+  }, []);
+
   return <div className="min-h-screen bg-white">
       <Navigation />
       
@@ -219,7 +229,7 @@ const PlumFlow = () => {
             <div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Viridian Systems</h3>
               <p className="text-gray-400 leading-relaxed">
-                Pioneers of AI solutions for the trades.
+                Pioneers of AI solutions.
               </p>
             </div>
             <div>

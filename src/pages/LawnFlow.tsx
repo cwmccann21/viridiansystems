@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Star, Leaf, Calendar, MessageSquare, Bell, Users, ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import { useEffect } from "react";
 
 const LawnFlow = () => {
   const automations = [
@@ -78,6 +79,13 @@ const LawnFlow = () => {
       ]
     }
   ];
+
+  useEffect(() => {
+    if (sessionStorage.getItem('scrollToTopOnNextPage')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      sessionStorage.removeItem('scrollToTopOnNextPage');
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -269,7 +277,7 @@ const LawnFlow = () => {
             <div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Viridian Systems</h3>
               <p className="text-gray-400 leading-relaxed">
-                Pioneers of AI solutions for the trades.
+                Pioneers of AI solutions.
               </p>
             </div>
             <div>
