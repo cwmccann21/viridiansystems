@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Star, ArrowRight, CheckCircle } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { Link } from "react-router-dom";
+import { useSlideUpOnView } from "@/hooks/useSlideUpOnView";
+
 const Index = () => {
   const flows = [{
     name: "AutoFlow",
@@ -53,13 +55,14 @@ const Index = () => {
     business: "GreenScape Lawn Care",
     rating: 5
   }];
+  const heroTitleRef = useSlideUpOnView<HTMLHeadingElement>();
   return <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
       <Navigation />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 relative overflow-hidden">
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tight leading-none">
+          <h1 ref={heroTitleRef} className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tight leading-none animate-slide-up-fade-in">
             Automation built for
             <span className="block" style={{ color: '#9032D1' }}>
               the trades.

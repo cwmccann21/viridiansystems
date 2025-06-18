@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { CheckCircle, Star, Car, Wrench, MessageSquare, Calendar, Bell, ArrowRight, Zap, Clock, Shield } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { useEffect } from "react";
+import { useSlideUpOnView } from "@/hooks/useSlideUpOnView";
 
 const AutoFlow = () => {
   const automations = [{
@@ -64,6 +65,8 @@ const AutoFlow = () => {
     features: ["Everything in Growth", "Multi-location Support", "Custom Automations", "API Integrations", "Dedicated Account Manager", "White-label Options"]
   }];
 
+  const heroTitleRef = useSlideUpOnView<HTMLHeadingElement>();
+
   useEffect(() => {
     if (sessionStorage.getItem('scrollToTopOnNextPage')) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -82,7 +85,7 @@ const AutoFlow = () => {
         </div> */}
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
+          <h1 ref={heroTitleRef} className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight animate-slide-up-fade-in">
             Automate Your 
             <span className="block text-blue-600"> Auto Shop Business</span>
           </h1>

@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { CheckCircle, Star, Wrench, Phone, Calendar, MessageSquare, Bell, ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { useEffect } from "react";
+import { useSlideUpOnView } from "@/hooks/useSlideUpOnView";
 
 const PlumFlow = () => {
   const automations = [{
@@ -42,6 +43,8 @@ const PlumFlow = () => {
     features: ["Everything in Growth", "Multi-technician Dispatch", "Inventory Integration", "Custom Workflows", "API Access", "Dedicated Account Manager"]
   }];
 
+  const heroTitleRef = useSlideUpOnView<HTMLHeadingElement>();
+
   useEffect(() => {
     if (sessionStorage.getItem('scrollToTopOnNextPage')) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -55,7 +58,7 @@ const PlumFlow = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight leading-none">
+          <h1 ref={heroTitleRef} className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight leading-none animate-slide-up-fade-in">
             Automate Your 
             <span className="block text-gray-600">Plumbing Business</span>
           </h1>
