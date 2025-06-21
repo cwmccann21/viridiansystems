@@ -1,32 +1,49 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Star, Home, Cloud, FileText, Calendar, MessageSquare, ArrowRight } from "lucide-react";
+import { CheckCircle, Star, Home, Cloud, FileText, Calendar, MessageSquare, ArrowRight, Sparkles } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { useEffect } from "react";
 import { useSlideUpOnView } from "@/hooks/useSlideUpOnView";
 
 const RoofFlow = () => {
-  const automations = [{
-    icon: <FileText className="h-8 w-8" />,
-    title: "Instant Lead Forms",
-    description: "Smart forms with roof type selectors and damage assessment tools"
-  }, {
-    icon: <Cloud className="h-8 w-8" />,
-    title: "Storm Response Automation",
-    description: "Automated SMS campaigns triggered by weather alerts in your area"
-  }, {
-    icon: <Calendar className="h-8 w-8" />,
-    title: "Inspection Scheduler",
-    description: "Automated appointment booking with photo upload capabilities"
-  }, {
-    icon: <MessageSquare className="h-8 w-8" />,
-    title: "Proposal Follow-ups",
-    description: "Automated reminder sequences for pending estimates and proposals"
-  }, {
-    icon: <Star className="h-8 w-8" />,
-    title: "Review & Referral System",
-    description: "Post-completion review requests and referral incentive automation"
-  }];
+  const automations = [
+    {
+      icon: <FileText className="h-8 w-8" />, // AI Reception
+      title: "PitchBot AI",
+      price: "$79",
+      description: "AI-powered lead reception for roofers."
+    },
+    {
+      icon: <Cloud className="h-8 w-8" />, // Review Request
+      title: "ShingleScore",
+      price: "$39",
+      description: "Automated review requests and feedback collection."
+    },
+    {
+      icon: <Calendar className="h-8 w-8" />, // Seasonal/Weather
+      title: "StormSignal",
+      price: "$39",
+      description: "Automated storm and seasonal alerts."
+    },
+    {
+      icon: <MessageSquare className="h-8 w-8" />, // Invoice/Service
+      title: "RidgeReport",
+      price: "$49",
+      description: "Automated inspection and service reporting."
+    },
+    {
+      icon: <Star className="h-8 w-8" />, // Lead Nurture
+      title: "GutterGuide",
+      price: "$45",
+      description: "Automated lead nurture and follow-up."
+    },
+    {
+      icon: <Sparkles className="h-8 w-8" />,
+      title: "& More",
+      price: "Varies",
+      description: "Custom automations for your unique roofing business. Mix, match, or request new features—pricing tailored to your needs."
+    }
+  ];
   const benefits = ["Respond to storm leads 10x faster than competitors", "Increase proposal acceptance rate by 45%", "Capture 85% more leads during storm season", "Reduce follow-up time by 20 hours per week", "Generate 200% more online reviews"];
   const plans = [{
     name: "Core",
@@ -100,20 +117,21 @@ const RoofFlow = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {automations.map((automation, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-gradient-to-br from-white to-red-50 h-full flex flex-col"
                 style={{
                   animationDelay: `${index * 100}ms`
                 }}
               >
-                <CardHeader className="pb-4 flex-shrink-0">
+                <CardHeader className="pb-4 flex-shrink-0 relative">
                   <div className="text-red-600 mb-4 group-hover:scale-110 transition-transform duration-300">
                     {automation.icon}
                   </div>
                   <CardTitle className="text-xl mb-2 group-hover:text-red-600 transition-colors duration-300">
                     {automation.title}
                   </CardTitle>
+                  <span className="absolute top-3 right-4 text-red-600 font-bold text-lg">{automation.price}</span>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <CardDescription className="text-gray-600 leading-relaxed">
@@ -122,6 +140,11 @@ const RoofFlow = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="flex justify-center mt-12">
+            <div className="bg-red-50 border border-red-200 rounded-xl px-8 py-6 shadow text-2xl font-bold text-red-700">
+              Total Flow Package Price: <span className="text-3xl text-red-900 ml-2">$199</span>
+            </div>
           </div>
         </div>
       </section>
@@ -160,60 +183,7 @@ const RoofFlow = () => {
       </section>
 
       {/* Pricing */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-              Simple, Transparent Pricing
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 px-4">
-              Choose the plan that fits your roofing business needs. Upgrade or downgrade anytime.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {plans.map((plan, index) => (
-              <Card 
-                key={index} 
-                className={`relative border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col ${plan.popular ? 'ring-2 ring-red-500 shadow-red-500/20 scale-105' : ''}`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                <CardHeader className="text-center pb-4 flex-shrink-0">
-                  <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
-                  <div className="mt-6">
-                    <span className="text-4xl md:text-5xl font-bold text-gray-900">{plan.price}</span>
-                    <span className="text-gray-600 text-lg">/month</span>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <ul className="space-y-4 mb-8 flex-grow">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-red-600 mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button 
-                    asChild 
-                    className={`w-full rounded-full font-semibold py-3 transition-all duration-300 hover:scale-105 flex-shrink-0 ${plan.popular ? 'bg-red-600 hover:bg-red-700 text-white shadow-lg' : 'border-2 border-red-600 text-red-600 hover:bg-red-50'}`} 
-                    variant={plan.popular ? 'default' : 'outline'}
-                  >
-                    <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
-                      Get Started
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      // Removed the Simple, Transparent Pricing section as requested.
 
       {/* CTA */}
       <section className="py-20 px-6 bg-gradient-to-r from-red-600 to-red-700 relative overflow-hidden">

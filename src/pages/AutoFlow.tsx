@@ -1,37 +1,49 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Star, Car, Wrench, MessageSquare, Calendar, Bell, ArrowRight, Zap, Clock, Shield } from "lucide-react";
+import { CheckCircle, Star, Car, Wrench, MessageSquare, Calendar, Bell, ArrowRight, Zap, Clock, Shield, Sparkles } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { useEffect } from "react";
 import { useSlideUpOnView } from "@/hooks/useSlideUpOnView";
 
 const AutoFlow = () => {
-  const automations = [{
-    icon: <MessageSquare className="h-8 w-8" />,
-    title: "AI Receptionist",
-    description: "Trained on auto repair FAQs to handle customer inquiries 24/7",
-    highlight: "Never miss a call again"
-  }, {
-    icon: <Car className="h-8 w-8" />,
-    title: "Missed Call Text-Back",
-    description: "Automatic SMS with VIN capture and service inquiry forms",
-    highlight: "Capture 90% more leads"
-  }, {
-    icon: <Bell className="h-8 w-8" />,
-    title: "Service Reminders",
-    description: "Automated oil change, tire rotation, and maintenance alerts",
-    highlight: "Increase repeat business"
-  }, {
-    icon: <Calendar className="h-8 w-8" />,
-    title: "Digital Inspections",
-    description: "Send inspection requests and photo documentation workflows",
-    highlight: "Streamline processes"
-  }, {
-    icon: <Star className="h-8 w-8" />,
-    title: "Review & Referral System",
-    description: "Post-service review requests and referral incentive campaigns",
-    highlight: "Boost online reputation"
-  }];
+  const automations = [
+    {
+      icon: <MessageSquare className="h-8 w-8" />, // AI Reception
+      title: "AutoVoice AI",
+      price: "$79",
+      description: "24/7 automated receptionist for auto shops."
+    },
+    {
+      icon: <Car className="h-8 w-8" />, // Review Request
+      title: "DriveRate Bot",
+      price: "$39",
+      description: "Automated review requests and feedback collection."
+    },
+    {
+      icon: <Bell className="h-8 w-8" />, // Service Remind
+      title: "MileagePing",
+      price: "$39",
+      description: "Automated mileage and service reminders."
+    },
+    {
+      icon: <Calendar className="h-8 w-8" />, // Promotional
+      title: "ShopBurst Campaign",
+      price: "$49",
+      description: "Promotional campaign automation for special offers."
+    },
+    {
+      icon: <Wrench className="h-8 w-8" />, // Invoice/Service
+      title: "WrenchTrack",
+      price: "$35",
+      description: "Automated invoice and service tracking."
+    },
+    {
+      icon: <Sparkles className="h-8 w-8" />,
+      title: "& More",
+      price: "Varies",
+      description: "Custom automations available for unique shop needs. Mix, match, or request new features—pricing tailored to your workflow."
+    }
+  ];
   const benefits = [{
     icon: <Zap className="h-6 w-6" />,
     text: "Capture 90% more leads from missed calls"
@@ -128,23 +140,21 @@ const AutoFlow = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {automations.map((automation, index) => (
-              <Card 
-                key={index} 
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-gradient-to-br from-white to-blue-50 h-full flex flex-col" 
+              <Card
+                key={index}
+                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-gradient-to-br from-white to-blue-50 h-full flex flex-col"
                 style={{
                   animationDelay: `${index * 100}ms`
                 }}
               >
-                <CardHeader className="pb-4 flex-shrink-0">
+                <CardHeader className="pb-4 flex-shrink-0 relative">
                   <div className="text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300">
                     {automation.icon}
                   </div>
                   <CardTitle className="text-xl mb-2 group-hover:text-blue-600 transition-colors duration-300">
                     {automation.title}
                   </CardTitle>
-                  <div className="text-sm text-blue-600 font-semibold mb-2">
-                    {automation.highlight}
-                  </div>
+                  <span className="absolute top-3 right-4 text-blue-600 font-bold text-lg">{automation.price}</span>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <CardDescription className="text-gray-600 leading-relaxed">
@@ -153,6 +163,11 @@ const AutoFlow = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="flex justify-center mt-12">
+            <div className="bg-blue-50 border border-blue-200 rounded-xl px-8 py-6 shadow text-2xl font-bold text-blue-700">
+              Total Flow Package Price: <span className="text-3xl text-blue-900 ml-2">$199</span>
+            </div>
           </div>
         </div>
       </section>
@@ -195,65 +210,7 @@ const AutoFlow = () => {
       </section>
 
       {/* Pricing */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-              Simple, Transparent Pricing
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 px-4">
-              Choose the plan that fits your shop's needs. Upgrade or downgrade anytime.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {plans.map((plan, index) => (
-              <Card 
-                key={index} 
-                className={`relative border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col ${plan.popular ? 'ring-2 ring-blue-500 shadow-blue-500/20 scale-105' : ''}`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                
-                <CardHeader className="text-center pb-4 flex-shrink-0">
-                  <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
-                  <div className="mt-6">
-                    <span className="text-4xl md:text-5xl font-bold text-gray-900">{plan.price}</span>
-                    <span className="text-gray-600 text-lg">/month</span>
-                  </div>
-                </CardHeader>
-                
-                <CardContent className="flex-grow flex flex-col">
-                  <ul className="space-y-4 mb-8 flex-grow">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <Button 
-                    asChild 
-                    className={`w-full rounded-full font-semibold py-3 transition-all duration-300 hover:scale-105 flex-shrink-0 ${plan.popular ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg' : 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50'}`} 
-                    variant={plan.popular ? 'default' : 'outline'}
-                  >
-                    <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
-                      Get Started
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      // Removed the Simple, Transparent Pricing section as requested.
 
       {/* CTA */}
       <section className="py-20 px-6 bg-gradient-to-r from-blue-600 to-blue-700 relative overflow-hidden">

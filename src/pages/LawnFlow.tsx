@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Star, Leaf, Calendar, MessageSquare, Bell, Users, ArrowRight } from "lucide-react";
+import { CheckCircle, Star, Leaf, Calendar, MessageSquare, Bell, Users, ArrowRight, Sparkles } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { useEffect } from "react";
 import { useSlideUpOnView } from "@/hooks/useSlideUpOnView";
@@ -9,28 +9,39 @@ const LawnFlow = () => {
   const automations = [
     {
       icon: <Calendar className="h-8 w-8" />,
-      title: "Seasonal Service Scheduler",
-      description: "Automated scheduling for spring cleanups, summer maintenance, and fall services"
-    },
-    {
-      icon: <Bell className="h-8 w-8" />,
-      title: "Recurring Service Reminders",
-      description: "Smart notifications for weekly cuts, fertilization, and pest treatments"
+      title: "GrassCall AI",
+      price: "$79",
+      description: "AI-powered reception for lawn care businesses."
     },
     {
       icon: <MessageSquare className="h-8 w-8" />,
-      title: "Weather-Based Communications",
-      description: "Automated updates about service delays due to weather conditions"
+      title: "LawnLove Feedback",
+      price: "$39",
+      description: "Automated review requests and feedback collection."
+    },
+    {
+      icon: <Bell className="h-8 w-8" />,
+      title: "GreenPush Alerts",
+      price: "$39",
+      description: "Automated seasonal and weather-based alerts."
     },
     {
       icon: <Leaf className="h-8 w-8" />,
-      title: "Landscape Project Follow-ups",
-      description: "Automated sequences for landscaping estimates and project updates"
+      title: "MowTrack Docs",
+      price: "$49",
+      description: "Automated invoice and service documentation."
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Customer Retention System",
-      description: "End-of-season surveys and next-year booking incentives"
+      title: "SproutFlow",
+      price: "$45",
+      description: "Automated lead nurture and retention."
+    },
+    {
+      icon: <Sparkles className="h-8 w-8" />,
+      title: "& More",
+      price: "Varies",
+      description: "Custom automations for your landscaping business. Mix, match, or request new features—pricing tailored to your workflow."
     }
   ];
 
@@ -139,20 +150,21 @@ const LawnFlow = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {automations.map((automation, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-gradient-to-br from-white to-green-50 h-full flex flex-col"
                 style={{
                   animationDelay: `${index * 100}ms`
                 }}
               >
-                <CardHeader className="pb-4 flex-shrink-0">
+                <CardHeader className="pb-4 flex-shrink-0 relative">
                   <div className="text-green-600 mb-4 group-hover:scale-110 transition-transform duration-300">
                     {automation.icon}
                   </div>
                   <CardTitle className="text-xl mb-2 group-hover:text-green-600 transition-colors duration-300">
                     {automation.title}
                   </CardTitle>
+                  <span className="absolute top-3 right-4 text-green-600 font-bold text-lg">{automation.price}</span>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <CardDescription className="text-gray-600 leading-relaxed">
@@ -161,6 +173,11 @@ const LawnFlow = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="flex justify-center mt-12">
+            <div className="bg-green-50 border border-green-200 rounded-xl px-8 py-6 shadow text-2xl font-bold text-green-700">
+              Total Flow Package Price: <span className="text-3xl text-green-900 ml-2">$199</span>
+            </div>
           </div>
         </div>
       </section>
@@ -198,51 +215,6 @@ const LawnFlow = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Simple, Transparent Pricing
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {plans.map((plan, index) => (
-              <Card key={index} className={`relative ${plan.popular ? 'border-green-500 shadow-lg scale-105' : ''}`}>
-                {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-green-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                  <div className="mt-4">
-                    <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                    <span className="text-gray-600">/month</span>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 mb-6">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center">
-                        <CheckCircle className="h-5 w-5 text-green-600 mr-2 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button 
-                    className={`w-full ${plan.popular ? 'bg-green-600 hover:bg-green-700' : ''}`}
-                    variant={plan.popular ? 'default' : 'outline'}
-                  >
-                    Get Started
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
