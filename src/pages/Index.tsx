@@ -80,23 +80,16 @@ const Index = () => {
               className="text-lg md:text-xl px-8 md:px-12 py-6 bg-[#9032D1] hover:bg-purple-800 text-white rounded-full font-semibold shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
             >
               <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
-                Start Your Free Trial
+                Start with a Strategy Call
                 <ArrowRight className="ml-2 h-5 w-5 md:h-6 md:w-6" />
               </a>
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="text-lg md:text-xl px-8 md:px-12 py-6 border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 rounded-full font-semibold hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-            >
-              Watch Demo
             </Button>
           </div>
 
           <div className="mt-16 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm text-gray-500 px-4">
             <div className="flex items-center">
               <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-              14-day free trial
+              Free Trial Available
             </div>
             <div className="flex items-center">
               <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
@@ -199,7 +192,7 @@ const Index = () => {
       <section className="py-24 px-6 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-            Trusted by 1,000+ Service Businesses
+            Trusted by service businesses everywhere
           </h2>
           <p className="text-xl text-gray-600 mb-16 max-w-3xl mx-auto">
             Join thousands of professionals who've automated their way to success
@@ -252,7 +245,7 @@ const Index = () => {
             className="text-lg md:text-2xl px-8 md:px-16 py-6 md:py-8 bg-white text-gray-900 hover:bg-gray-100 rounded-full font-bold shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
           >
             <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
-              Start Your Free Trial Today
+              Start with a Strategy Call Today
               <ArrowRight className="ml-2 md:ml-3 h-5 w-5 md:h-8 md:w-8" />
             </a>
           </Button>

@@ -89,16 +89,9 @@ const RoofFlow = () => {
               className="text-lg md:text-xl px-8 md:px-12 py-6 bg-red-600 hover:bg-red-700 text-white rounded-full font-semibold shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
             >
               <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
-                Start Your Free Trial
+                Start with a Strategy Call
                 <ArrowRight className="ml-2 h-5 w-5 md:h-6 md:w-6" />
               </a>
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="text-lg md:text-xl px-8 md:px-12 py-6 border-2 border-red-600 text-red-600 hover:bg-red-50 rounded-full font-semibold hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-            >
-              Watch Demo
             </Button>
           </div>
         </div>
@@ -183,7 +176,7 @@ const RoofFlow = () => {
       </section>
 
       {/* Pricing */}
-      // Removed the Simple, Transparent Pricing section as requested.
+      {/* ... existing code ... */}
 
       {/* CTA */}
       <section className="py-20 px-6 bg-gradient-to-r from-red-600 to-red-700 relative overflow-hidden">
@@ -206,7 +199,7 @@ const RoofFlow = () => {
             className="text-lg md:text-xl px-8 md:px-12 py-6 bg-white text-red-600 hover:bg-gray-100 rounded-full font-bold shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
           >
             <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
-              Start Your Free Trial Today
+              Start with a Strategy Call Today
               <ArrowRight className="ml-2 md:ml-3 h-5 w-5 md:h-6 md:w-6" />
             </a>
           </Button>

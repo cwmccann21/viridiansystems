@@ -111,16 +111,9 @@ const AutoFlow = () => {
               className="text-lg md:text-xl px-8 md:px-12 py-6 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
             >
               <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
-                Start Your Free Trial
+                Start with a Strategy Call
                 <ArrowRight className="ml-2 h-5 w-5 md:h-6 md:w-6" />
               </a>
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="text-lg md:text-xl px-8 md:px-12 py-6 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-full font-semibold hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-            >
-              Watch Demo
             </Button>
           </div>
         </div>
@@ -210,9 +203,6 @@ const AutoFlow = () => {
       </section>
 
       {/* Pricing */}
-      // Removed the Simple, Transparent Pricing section as requested.
-
-      {/* CTA */}
       <section className="py-20 px-6 bg-gradient-to-r from-blue-600 to-blue-700 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-10 left-10 text-4xl md:text-6xl opacity-10">🚗</div>
@@ -232,7 +222,7 @@ const AutoFlow = () => {
             className="text-lg md:text-xl px-8 md:px-12 py-6 bg-white text-blue-600 hover:bg-gray-100 rounded-full font-bold shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
           >
             <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
-              Start Your Free Trial Today
+              Start with a Strategy Call Today
               <ArrowRight className="ml-2 md:ml-3 h-5 w-5 md:h-6 md:w-6" />
             </a>
           </Button>

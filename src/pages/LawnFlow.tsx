@@ -122,16 +122,9 @@ const LawnFlow = () => {
               className="text-lg md:text-xl px-8 md:px-12 py-6 bg-green-600 hover:bg-green-700 text-white rounded-full font-semibold shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
             >
               <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
-                Start Your Free Trial
+                Start with a Strategy Call
                 <ArrowRight className="ml-2 h-5 w-5 md:h-6 md:w-6" />
               </a>
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="text-lg md:text-xl px-8 md:px-12 py-6 border-2 border-green-600 text-green-600 hover:bg-green-50 rounded-full font-semibold hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-            >
-              Watch Demo
             </Button>
           </div>
         </div>
@@ -223,6 +216,7 @@ const LawnFlow = () => {
       <section className="py-20 px-6 bg-gradient-to-r from-green-600 to-green-700 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-10 left-10 text-4xl md:text-6xl opacity-20">🌿</div>
+          <div className="absolute bottom-10 right-10 text-4xl md:text-6xl opacity-20">🌱</div>
         </div>
         <div className="max-w-5xl mx-auto text-center text-white relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight px-4">
@@ -238,7 +232,7 @@ const LawnFlow = () => {
             className="text-lg md:text-xl px-8 md:px-12 py-6 bg-white text-green-600 hover:bg-gray-100 rounded-full font-bold shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
           >
             <a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer">
-              Start Your Free Trial Today
+              Start with a Strategy Call Today
               <ArrowRight className="ml-2 md:ml-3 h-5 w-5 md:h-6 md:w-6" />
             </a>
           </Button>
