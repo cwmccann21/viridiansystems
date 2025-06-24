@@ -9,6 +9,7 @@ import RoofFlow from "./pages/RoofFlow";
 import LawnFlow from "./pages/LawnFlow";
 import PlumFlow from "./pages/PlumbFlow";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/roofflow" element={<RoofFlow />} />
           <Route path="/lawnflow" element={<LawnFlow />} />
           <Route path="/plumbflow" element={<PlumFlow />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
