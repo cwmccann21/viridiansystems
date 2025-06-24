@@ -58,6 +58,7 @@ const Navigation = () => {
                     backgroundColor: item.name === 'Home' ? '#9032D1' : item.color,
                     boxShadow: `0 10px 30px ${(item.name === 'Home' ? '#9032D1' : item.color)}30`
                   } : {}}
+                  onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                 >
                   {item.name}
                 </Link>
@@ -164,7 +165,10 @@ const Navigation = () => {
                       backgroundColor: item.name === 'Home' ? '#9032D1' : item.color,
                       boxShadow: `0 10px 30px ${(item.name === 'Home' ? '#9032D1' : item.color)}30`
                     } : {}}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={() => {
+                      setMobileOpen(false);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                   >
                     {item.name}
                   </Link>

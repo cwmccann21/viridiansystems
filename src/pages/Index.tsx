@@ -275,15 +275,15 @@ const Index = () => {
               <h4 className="font-semibold mb-6 text-lg">Company</h4>
               <ul className="space-y-3 text-gray-400">
                 <li><a href="#" className="hover:text-white transition-colors duration-200">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors duration-200">Contact</a></li>
-                <li><a href="#" className="hover:text-white transition-colors duration-200">Support</a></li>
+                <li><a href="https://calendly.com/viridiansystems/30min?month=2025-06" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">Contact</a></li>
+                <li><a href="mailto:info@viridiansystems.org" className="hover:text-white transition-colors duration-200">Support</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-6 text-lg">Legal</h4>
               <ul className="space-y-3 text-gray-400">
                 <li><a href="/privacy-policy" className="hover:text-white transition-colors duration-200">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors duration-200">Terms of Service</a></li>
+                <li><a href="/terms-of-service" className="hover:text-white transition-colors duration-200">Terms of Service</a></li>
               </ul>
             </div>
           </div>
