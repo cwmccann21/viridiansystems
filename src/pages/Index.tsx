@@ -12,32 +12,60 @@ const Index = () => {
     color: "#2563eb",
     icon: "🚗",
     industry: "Auto Repair Shops",
-    description: "Streamline customer communications and service reminders",
-    features: ["AI Receptionist", "Service Reminders", "Review Automation"]
+    description: "Prebuilt automation tools tailored specifically for auto repair professionals. Never miss a lead, follow-up, or service reminder again.",
+    features: [
+      "AutoVoice AI",
+      "DriveRate Bot",
+      "MileagePing",
+      "ShopBurst Campaign",
+      "WrenchTrack",
+      "& More"
+    ]
   }, {
     name: "RoofFlow",
     path: "/roofflow",
     color: "#dc2626",
     icon: "🏠",
     industry: "Roofing Companies",
-    description: "Automate lead capture and inspection scheduling",
-    features: ["Storm Response", "Lead Forms", "Inspection Booking"]
+    description: "Prebuilt automation tools tailored specifically for roofing professionals. Capture storm leads faster and never miss a follow-up.",
+    features: [
+      "PitchBot AI",
+      "ShingleScore",
+      "StormSignal",
+      "RidgeReport",
+      "GutterGuide",
+      "& More"
+    ]
   }, {
     name: "LawnFlow",
     path: "/lawnflow",
     color: "#16a34a",
     icon: "🌱",
     industry: "Landscaping & Lawn Care",
-    description: "Manage seasonal services and customer retention",
-    features: ["Seasonal Scheduling", "Weather Alerts", "Retention System"]
+    description: "Prebuilt automation tools tailored specifically for landscaping and lawn care professionals. Manage seasonal services and keep customers year-round.",
+    features: [
+      "GrassCall AI",
+      "LawnLove Feedback",
+      "GreenPush Alerts",
+      "MowTrack Docs",
+      "SproutFlow",
+      "& More"
+    ]
   }, {
     name: "PlumFlow",
     path: "/plumbflow",
     color: "#6b7280",
     icon: "🔧",
     industry: "Plumbing Services",
-    description: "Handle emergency calls and maintenance scheduling",
-    features: ["24/7 Emergency", "Maintenance Alerts", "Service Tracking"]
+    description: "Prebuilt automation tools tailored specifically for plumbing professionals. Handle emergencies 24/7 and never miss a maintenance opportunity.",
+    features: [
+      "PipeVoice AI",
+      "FlowFeedback",
+      "FixFlow",
+      "PipeTrack Docs",
+      "PromoFlush",
+      "& More"
+    ]
   }];
   const testimonials = [{
     quote: "AutoFlow increased our booking rate by 45% in the first month. Absolutely game-changing.",
