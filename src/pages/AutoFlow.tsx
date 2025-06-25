@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Star, Car, Wrench, MessageSquare, Calendar, Bell, ArrowRight, Zap, Clock, Shield, Sparkles } from "lucide-react";
+import { CheckCircle, Star, Car, Wrench, MessageSquare, Calendar, Bell, ArrowRight, Zap, Clock, Shield, Sparkles, Info, ThumbsUp, ClipboardList, Send, Users as UsersIcon, CloudRain, FileText, Home, Phone, AlertCircle, Gift, CheckCircle as CheckCircleIcon } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { useEffect } from "react";
 import { useSlideUpOnView } from "@/hooks/useSlideUpOnView";
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const AutoFlow = () => {
   const automations = [
@@ -38,10 +39,10 @@ const AutoFlow = () => {
       description: "Automated invoice and service tracking."
     },
     {
-      icon: <Sparkles className="h-8 w-8" />,
-      title: "& More",
+      icon: <Sparkles className="h-8 w-8" />, 
+      title: "CRM Integration",
       price: "Varies",
-      description: "Custom automations available for unique shop needs. Mix, match, or request new features—pricing tailored to your workflow."
+      description: "Integrate with your preferred CRM or use our in-house solution. We support in-house or BYO options. Pricing varies as we work with partners."
     }
   ];
   const benefits = [{
@@ -78,6 +79,51 @@ const AutoFlow = () => {
   }];
 
   const heroTitleRef = useSlideUpOnView<HTMLHeadingElement>();
+
+  const automationSteps = {
+    "AutoVoice AI": [
+      { icon: <Phone className="h-5 w-5 text-blue-500" />, text: "Customer Reaches Out (Call or Web Form)" },
+      { icon: <MessageSquare className="h-5 w-5 text-blue-500" />, text: "AI Receptionist Engages (Collects name, vehicle, issue, etc.) & Answers FAQ" },
+      { icon: <Calendar className="h-5 w-5 text-blue-500" />, text: "Smart Scheduling & CRM Entry" },
+      { icon: <Bell className="h-5 w-5 text-blue-500" />, text: "Automated Follow-Ups (Reminders, reviews, updates)" },
+      { icon: <Star className="h-5 w-5 text-blue-500" />, text: "Ongoing Engagement & Reporting" },
+    ],
+    "DriveRate Bot": [
+      { icon: <Wrench className="h-5 w-5 text-blue-500" />, text: "Service Completed" },
+      { icon: <Send className="h-5 w-5 text-blue-500" />, text: "Automated Review Request Sent" },
+      { icon: <ThumbsUp className="h-5 w-5 text-blue-500" />, text: "Customer Submits Feedback" },
+      { icon: <Star className="h-5 w-5 text-blue-500" />, text: "Positive Reviews Boosted" },
+      { icon: <ClipboardList className="h-5 w-5 text-blue-500" />, text: "Reputation Dashboard Updated" },
+    ],
+    "MileagePing": [
+      { icon: <Car className="h-5 w-5 text-blue-500" />, text: "Mileage Data Collected" },
+      { icon: <Calendar className="h-5 w-5 text-blue-500" />, text: "Automated Reminder Scheduled" },
+      { icon: <Bell className="h-5 w-5 text-blue-500" />, text: "Customer Receives Reminder" },
+      { icon: <ArrowRight className="h-5 w-5 text-blue-500" />, text: "Easy Booking Link Provided" },
+      { icon: <Bell className="h-5 w-5 text-blue-500" />, text: "Follow-Up if No Response" },
+    ],
+    "ShopBurst Campaign": [
+      { icon: <Gift className="h-5 w-5 text-blue-500" />, text: "Campaign Created" },
+      { icon: <Send className="h-5 w-5 text-blue-500" />, text: "Automated Message Sent" },
+      { icon: <ArrowRight className="h-5 w-5 text-blue-500" />, text: "Customer Clicks Offer" },
+      { icon: <ClipboardList className="h-5 w-5 text-blue-500" />, text: "Bookings & Redemptions Tracked" },
+      { icon: <Star className="h-5 w-5 text-blue-500" />, text: "Performance Report Generated" },
+    ],
+    "WrenchTrack": [
+      { icon: <Wrench className="h-5 w-5 text-blue-500" />, text: "Service/Invoice Created" },
+      { icon: <Bell className="h-5 w-5 text-blue-500" />, text: "Automated Status Updates" },
+      { icon: <FileText className="h-5 w-5 text-blue-500" />, text: "Digital Invoice Sent" },
+      { icon: <Bell className="h-5 w-5 text-blue-500" />, text: "Follow-Up Reminders" },
+      { icon: <ClipboardList className="h-5 w-5 text-blue-500" />, text: "Records Synced to CRM" },
+    ],
+    "CRM Integration": [
+      { icon: <UsersIcon className="h-5 w-5 text-blue-500" />, text: "Connect Your CRM" },
+      { icon: <CloudRain className="h-5 w-5 text-blue-500" />, text: "Data Sync Initiated" },
+      { icon: <Zap className="h-5 w-5 text-blue-500" />, text: "Automations Activated" },
+      { icon: <ClipboardList className="h-5 w-5 text-blue-500" />, text: "Custom Workflows Configured" },
+      { icon: <Info className="h-5 w-5 text-blue-500" />, text: "Ongoing Support & Updates" },
+    ],
+  };
 
   useEffect(() => {
     if (sessionStorage.getItem('scrollToTopOnNextPage')) {
@@ -133,33 +179,54 @@ const AutoFlow = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {automations.map((automation, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-gradient-to-br from-white to-blue-50 h-full flex flex-col"
-                style={{
-                  animationDelay: `${index * 100}ms`
-                }}
-              >
-                <CardHeader className="pb-4 flex-shrink-0 relative">
-                  <div className="text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {automation.icon}
+              <Dialog key={index}>
+                <Card
+                  className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-gradient-to-br from-white to-blue-50 h-full flex flex-col"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <CardHeader className="pb-4 flex-shrink-0 relative">
+                    <div className="text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {automation.icon}
+                    </div>
+                    <CardTitle className="text-xl mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                      {automation.title}
+                    </CardTitle>
+                    <span className="absolute top-3 right-4 text-blue-600 font-bold text-lg">{automation.price}<span className="text-sm align-top">/mo</span></span>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <CardDescription className="text-gray-600 leading-relaxed">
+                      {automation.description}
+                    </CardDescription>
+                  </CardContent>
+                  <div className="p-6 pt-0 mt-auto">
+                    <DialogTrigger asChild>
+                      <Button variant="outline" className="w-full rounded-full font-semibold py-2 text-blue-600 border-blue-200 hover:bg-blue-50 hover:text-blue-700 shadow-sm">
+                        Learn More
+                      </Button>
+                    </DialogTrigger>
                   </div>
-                  <CardTitle className="text-xl mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                    {automation.title}
-                  </CardTitle>
-                  <span className="absolute top-3 right-4 text-blue-600 font-bold text-lg">{automation.price}</span>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <CardDescription className="text-gray-600 leading-relaxed">
-                    {automation.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                </Card>
+                <DialogContent className="max-w-lg w-full rounded-2xl shadow-2xl p-0 overflow-hidden">
+                  <DialogHeader className="bg-blue-50 px-6 pt-6 pb-2">
+                    <DialogTitle className="text-2xl font-bold text-blue-700">{automation.title}</DialogTitle>
+                  </DialogHeader>
+                  <div className="px-6 pb-6 pt-2 max-h-[70vh] overflow-y-auto">
+                    <ol className="space-y-4">
+                      {(automationSteps[automation.title] || []).map((step, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span>{step.icon}</span>
+                          <span className="text-base text-gray-700 font-medium">Step {i + 1}: {step.text}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
           <div className="flex justify-center mt-12">
             <div className="bg-blue-50 border border-blue-200 rounded-xl px-8 py-6 shadow text-2xl font-bold text-blue-700">
-              Total Flow Package Price: <span className="text-3xl text-blue-900 ml-2">$199</span>
+              Total Flow Package Price: <span className="text-3xl text-blue-900 ml-2">$199<span className="text-sm align-top">/mo</span></span>
             </div>
           </div>
         </div>

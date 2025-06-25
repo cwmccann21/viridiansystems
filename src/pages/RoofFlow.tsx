@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Star, Home, Cloud, FileText, Calendar, MessageSquare, ArrowRight, Sparkles } from "lucide-react";
+import { CheckCircle, Star, Home, Cloud, FileText, Calendar, MessageSquare, ArrowRight, Sparkles, Info, ThumbsUp, ClipboardList, Send, Users as UsersIcon, CloudRain, Phone, AlertCircle, Gift, CheckCircle as CheckCircleIcon, Bell, Wrench, Zap } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { useEffect } from "react";
 import { useSlideUpOnView } from "@/hooks/useSlideUpOnView";
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const RoofFlow = () => {
   const automations = [
@@ -38,10 +39,10 @@ const RoofFlow = () => {
       description: "Automated lead nurture and follow-up."
     },
     {
-      icon: <Sparkles className="h-8 w-8" />,
-      title: "& More",
+      icon: <Sparkles className="h-8 w-8" />, 
+      title: "CRM Integration",
       price: "Varies",
-      description: "Custom automations for your unique roofing business. Mix, match, or request new features—pricing tailored to your needs."
+      description: "Integrate with your preferred CRM or use our in-house solution. We support in-house or BYO options. Pricing varies as we work with partners."
     }
   ];
   const benefits = ["Respond to storm leads 10x faster than competitors", "Increase proposal acceptance rate by 45%", "Capture 85% more leads during storm season", "Reduce follow-up time by 20 hours per week", "Generate 200% more online reviews"];
@@ -61,6 +62,51 @@ const RoofFlow = () => {
   }];
 
   const heroTitleRef = useSlideUpOnView<HTMLHeadingElement>();
+
+  const automationSteps = {
+    "PitchBot AI": [
+      { icon: <Phone className="h-5 w-5 text-red-600" />, text: "Customer Calls or Fills Lead Form" },
+      { icon: <Home className="h-5 w-5 text-red-600" />, text: "AI Receptionist Collects Project Details" },
+      { icon: <Calendar className="h-5 w-5 text-red-600" />, text: "Schedules Inspection/Estimate" },
+      { icon: <Bell className="h-5 w-5 text-red-600" />, text: "Sends Confirmation & Reminders" },
+      { icon: <ThumbsUp className="h-5 w-5 text-red-600" />, text: "Follows Up for Feedback" },
+    ],
+    "ShingleScore": [
+      { icon: <Wrench className="h-5 w-5 text-red-600" />, text: "Job Completed" },
+      { icon: <Send className="h-5 w-5 text-red-600" />, text: "Automated Review Request Sent" },
+      { icon: <ThumbsUp className="h-5 w-5 text-red-600" />, text: "Customer Leaves Feedback" },
+      { icon: <Star className="h-5 w-5 text-red-600" />, text: "Positive Reviews Promoted" },
+      { icon: <ClipboardList className="h-5 w-5 text-red-600" />, text: "Track Results in Dashboard" },
+    ],
+    "StormSignal": [
+      { icon: <CloudRain className="h-5 w-5 text-red-600" />, text: "Weather/Storm Data Monitored" },
+      { icon: <Send className="h-5 w-5 text-red-600" />, text: "Automated Alert Sent to Customers" },
+      { icon: <ArrowRight className="h-5 w-5 text-red-600" />, text: "Customer Responds for Inspection" },
+      { icon: <Calendar className="h-5 w-5 text-red-600" />, text: "Schedule & Confirm Appointment" },
+      { icon: <ClipboardList className="h-5 w-5 text-red-600" />, text: "Track Conversions" },
+    ],
+    "RidgeReport": [
+      { icon: <FileText className="h-5 w-5 text-red-600" />, text: "Inspection/Service Performed" },
+      { icon: <FileText className="h-5 w-5 text-red-600" />, text: "Digital Report Created" },
+      { icon: <Send className="h-5 w-5 text-red-600" />, text: "Report Sent to Customer" },
+      { icon: <Bell className="h-5 w-5 text-red-600" />, text: "Follow-Up for Next Steps" },
+      { icon: <ClipboardList className="h-5 w-5 text-red-600" />, text: "Records Synced to CRM" },
+    ],
+    "GutterGuide": [
+      { icon: <UsersIcon className="h-5 w-5 text-red-600" />, text: "New Lead Captured" },
+      { icon: <Send className="h-5 w-5 text-red-600" />, text: "Automated Welcome/Nurture" },
+      { icon: <Gift className="h-5 w-5 text-red-600" />, text: "Follow-Up Reminders" },
+      { icon: <Gift className="h-5 w-5 text-red-600" />, text: "Upsell/Cross-Sell Offers" },
+      { icon: <ClipboardList className="h-5 w-5 text-red-600" />, text: "Track Engagement" },
+    ],
+    "CRM Integration": [
+      { icon: <UsersIcon className="h-5 w-5 text-red-600" />, text: "Connect Your CRM" },
+      { icon: <CloudRain className="h-5 w-5 text-red-600" />, text: "Data Sync Initiated" },
+      { icon: <Zap className="h-5 w-5 text-red-600" />, text: "Automations Activated" },
+      { icon: <ClipboardList className="h-5 w-5 text-red-600" />, text: "Custom Workflows Configured" },
+      { icon: <Info className="h-5 w-5 text-red-600" />, text: "Ongoing Support & Updates" },
+    ],
+  };
 
   useEffect(() => {
     if (sessionStorage.getItem('scrollToTopOnNextPage')) {
@@ -110,33 +156,54 @@ const RoofFlow = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {automations.map((automation, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-gradient-to-br from-white to-red-50 h-full flex flex-col"
-                style={{
-                  animationDelay: `${index * 100}ms`
-                }}
-              >
-                <CardHeader className="pb-4 flex-shrink-0 relative">
-                  <div className="text-red-600 mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {automation.icon}
+              <Dialog key={index}>
+                <Card
+                  className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-gradient-to-br from-white to-red-50 h-full flex flex-col"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <CardHeader className="pb-4 flex-shrink-0 relative">
+                    <div className="text-red-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {automation.icon}
+                    </div>
+                    <CardTitle className="text-xl mb-2 group-hover:text-red-600 transition-colors duration-300">
+                      {automation.title}
+                    </CardTitle>
+                    <span className="absolute top-3 right-4 text-red-600 font-bold text-lg">{automation.price}<span className="text-sm align-top">/mo</span></span>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <CardDescription className="text-gray-600 leading-relaxed">
+                      {automation.description}
+                    </CardDescription>
+                  </CardContent>
+                  <div className="p-6 pt-0 mt-auto">
+                    <DialogTrigger asChild>
+                      <Button variant="outline" className="w-full rounded-full font-semibold py-2 text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700 shadow-sm">
+                        Learn More
+                      </Button>
+                    </DialogTrigger>
                   </div>
-                  <CardTitle className="text-xl mb-2 group-hover:text-red-600 transition-colors duration-300">
-                    {automation.title}
-                  </CardTitle>
-                  <span className="absolute top-3 right-4 text-red-600 font-bold text-lg">{automation.price}</span>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <CardDescription className="text-gray-600 leading-relaxed">
-                    {automation.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                </Card>
+                <DialogContent className="max-w-lg w-full rounded-2xl shadow-2xl p-0 overflow-hidden">
+                  <DialogHeader className="bg-red-50 px-6 pt-6 pb-2">
+                    <DialogTitle className="text-2xl font-bold text-red-700">{automation.title}</DialogTitle>
+                  </DialogHeader>
+                  <div className="px-6 pb-6 pt-2 max-h-[70vh] overflow-y-auto">
+                    <ol className="space-y-4">
+                      {(automationSteps[automation.title] || []).map((step, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span>{step.icon}</span>
+                          <span className="text-base text-gray-700 font-medium">Step {i + 1}: {step.text}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
           <div className="flex justify-center mt-12">
             <div className="bg-red-50 border border-red-200 rounded-xl px-8 py-6 shadow text-2xl font-bold text-red-700">
-              Total Flow Package Price: <span className="text-3xl text-red-900 ml-2">$199</span>
+              Total Flow Package Price: <span className="text-3xl text-red-900 ml-2">$199<span className="text-sm align-top">/mo</span></span>
             </div>
           </div>
         </div>

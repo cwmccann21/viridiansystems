@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Star, Wrench, Phone, Calendar, MessageSquare, Bell, ArrowRight, Sparkles } from "lucide-react";
+import { CheckCircle, Star, Wrench, Phone, Calendar, MessageSquare, Bell, ArrowRight, Sparkles, Info, ThumbsUp, ClipboardList, Send, Users as UsersIcon, CloudRain, FileText, AlertCircle, Gift, Zap } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { useEffect } from "react";
 import { useSlideUpOnView } from "@/hooks/useSlideUpOnView";
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const PlumFlow = () => {
   const automations = [
@@ -38,10 +39,10 @@ const PlumFlow = () => {
       description: "Promotional campaign automation for plumbing services."
     },
     {
-      icon: <Sparkles className="h-8 w-8" />,
-      title: "& More",
+      icon: <Sparkles className="h-8 w-8" />, 
+      title: "CRM Integration",
       price: "Varies",
-      description: "Custom automations for your plumbing business. Mix, match, or request new features—pricing tailored to your needs."
+      description: "Integrate with your preferred CRM or use our in-house solution. We support in-house or BYO options. Pricing varies as we work with partners."
     }
   ];
   const benefits = ["Reduce emergency response time by 75%", "Increase scheduled maintenance bookings by 60%", "Capture 95% of after-hours calls", "Boost customer satisfaction scores by 50%", "Generate 40% more repeat business"];
@@ -61,6 +62,51 @@ const PlumFlow = () => {
   }];
 
   const heroTitleRef = useSlideUpOnView<HTMLHeadingElement>();
+
+  const automationSteps = {
+    "PipeVoice AI": [
+      { icon: <Phone className="h-5 w-5 text-gray-600" />, text: "Emergency Call or Inquiry" },
+      { icon: <AlertCircle className="h-5 w-5 text-gray-600" />, text: "AI Receptionist Collects Details (issue, address)" },
+      { icon: <Wrench className="h-5 w-5 text-gray-600" />, text: "Schedules Emergency Dispatch" },
+      { icon: <Bell className="h-5 w-5 text-gray-600" />, text: "Sends Confirmation & Updates" },
+      { icon: <ThumbsUp className="h-5 w-5 text-gray-600" />, text: "Follows Up for Feedback" },
+    ],
+    "FlowFeedback": [
+      { icon: <Wrench className="h-5 w-5 text-gray-600" />, text: "Job Completed" },
+      { icon: <Send className="h-5 w-5 text-gray-600" />, text: "Automated Review Request Sent" },
+      { icon: <ThumbsUp className="h-5 w-5 text-gray-600" />, text: "Customer Leaves Feedback" },
+      { icon: <Star className="h-5 w-5 text-gray-600" />, text: "Positive Reviews Promoted" },
+      { icon: <ClipboardList className="h-5 w-5 text-gray-600" />, text: "Track Results in Dashboard" },
+    ],
+    "FixFlow": [
+      { icon: <Wrench className="h-5 w-5 text-gray-600" />, text: "Repair/Service Completed" },
+      { icon: <Send className="h-5 w-5 text-gray-600" />, text: "Automated Follow-Up Sent" },
+      { icon: <AlertCircle className="h-5 w-5 text-gray-600" />, text: "Leak Alert Monitoring" },
+      { icon: <Bell className="h-5 w-5 text-gray-600" />, text: "Customer Notified if Issue Detected" },
+      { icon: <ClipboardList className="h-5 w-5 text-gray-600" />, text: "Track Resolutions" },
+    ],
+    "PipeTrack Docs": [
+      { icon: <FileText className="h-5 w-5 text-gray-600" />, text: "Service/Invoice Created" },
+      { icon: <Bell className="h-5 w-5 text-gray-600" />, text: "Status Updates Sent" },
+      { icon: <FileText className="h-5 w-5 text-gray-600" />, text: "Digital Invoice Delivered" },
+      { icon: <Bell className="h-5 w-5 text-gray-600" />, text: "Follow-Up Reminders" },
+      { icon: <ClipboardList className="h-5 w-5 text-gray-600" />, text: "Records Synced to CRM" },
+    ],
+    "PromoFlush": [
+      { icon: <Gift className="h-5 w-5 text-gray-600" />, text: "Campaign Created" },
+      { icon: <Send className="h-5 w-5 text-gray-600" />, text: "Automated Message Sent" },
+      { icon: <Gift className="h-5 w-5 text-gray-600" />, text: "Customer Redeems Offer" },
+      { icon: <ClipboardList className="h-5 w-5 text-gray-600" />, text: "Bookings & Redemptions Tracked" },
+      { icon: <Star className="h-5 w-5 text-gray-600" />, text: "Performance Report Generated" },
+    ],
+    "CRM Integration": [
+      { icon: <UsersIcon className="h-5 w-5 text-gray-600" />, text: "Connect Your CRM" },
+      { icon: <CloudRain className="h-5 w-5 text-gray-600" />, text: "Data Sync Initiated" },
+      { icon: <Zap className="h-5 w-5 text-gray-600" />, text: "Automations Activated" },
+      { icon: <ClipboardList className="h-5 w-5 text-gray-600" />, text: "Custom Workflows Configured" },
+      { icon: <Info className="h-5 w-5 text-gray-600" />, text: "Ongoing Support & Updates" },
+    ],
+  };
 
   useEffect(() => {
     if (sessionStorage.getItem('scrollToTopOnNextPage')) {
@@ -110,33 +156,54 @@ const PlumFlow = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {automations.map((automation, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-gradient-to-br from-white to-gray-50 h-full flex flex-col"
-                style={{
-                  animationDelay: `${index * 100}ms`
-                }}
-              >
-                <CardHeader className="pb-4 flex-shrink-0 relative">
-                  <div className="text-gray-600 mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {automation.icon}
+              <Dialog key={index}>
+                <Card
+                  className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-gradient-to-br from-white to-gray-50 h-full flex flex-col"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <CardHeader className="pb-4 flex-shrink-0 relative">
+                    <div className="text-gray-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {automation.icon}
+                    </div>
+                    <CardTitle className="text-xl mb-2 group-hover:text-gray-600 transition-colors duration-300">
+                      {automation.title}
+                    </CardTitle>
+                    <span className="absolute top-3 right-4 text-gray-600 font-bold text-lg">{automation.price}<span className="text-sm align-top">/mo</span></span>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <CardDescription className="text-gray-600 leading-relaxed">
+                      {automation.description}
+                    </CardDescription>
+                  </CardContent>
+                  <div className="p-6 pt-0 mt-auto">
+                    <DialogTrigger asChild>
+                      <Button variant="outline" className="w-full rounded-full font-semibold py-2 text-gray-600 border-gray-200 hover:bg-gray-50 hover:text-gray-700 shadow-sm">
+                        Learn More
+                      </Button>
+                    </DialogTrigger>
                   </div>
-                  <CardTitle className="text-xl mb-2 group-hover:text-gray-600 transition-colors duration-300">
-                    {automation.title}
-                  </CardTitle>
-                  <span className="absolute top-3 right-4 text-gray-600 font-bold text-lg">{automation.price}</span>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <CardDescription className="text-gray-600 leading-relaxed">
-                    {automation.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                </Card>
+                <DialogContent className="max-w-lg w-full rounded-2xl shadow-2xl p-0 overflow-hidden">
+                  <DialogHeader className="bg-gray-50 px-6 pt-6 pb-2">
+                    <DialogTitle className="text-2xl font-bold text-gray-700">{automation.title}</DialogTitle>
+                  </DialogHeader>
+                  <div className="px-6 pb-6 pt-2 max-h-[70vh] overflow-y-auto">
+                    <ol className="space-y-4">
+                      {(automationSteps[automation.title] || []).map((step, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span>{step.icon}</span>
+                          <span className="text-base text-gray-700 font-medium">Step {i + 1}: {step.text}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
           <div className="flex justify-center mt-12">
             <div className="bg-gray-50 border border-gray-200 rounded-xl px-8 py-6 shadow text-2xl font-bold text-gray-700">
-              Total Flow Package Price: <span className="text-3xl text-gray-900 ml-2">$199</span>
+              Total Flow Package Price: <span className="text-3xl text-gray-900 ml-2">$199<span className="text-sm align-top">/mo</span></span>
             </div>
           </div>
         </div>
